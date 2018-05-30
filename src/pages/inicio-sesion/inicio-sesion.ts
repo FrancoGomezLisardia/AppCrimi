@@ -57,26 +57,26 @@ export class InicioSesionPage {
  
 
   Iniciar_Sesion() {
+    this.navCtrl.setRoot(InicioPage)
+  //   for (let index = 0; index < this.listaDeUsuarios.length; index++) {
     
-    for (let index = 0; index < this.listaDeUsuarios.length; index++) {
-    
-         const element =  this.listaDeUsuarios[index];
-         if (element.contrasena==this.userModel.password && element.correo==this.userModel.email ) {
+  //        const element =  this.listaDeUsuarios[index];
+  //        if (element.contrasena==this.userModel.password && element.correo==this.userModel.email ) {
             
-            // console.log("ID Usuario Actual:",this.cip.usuario_actual)
-            // this.cip.tipo_usuario=element.tipo_usuario
-            // this.cip.id_usuario=element.id
-            this.navCtrl.setRoot(InicioPage,{'usuarioLogeado':element});
-            return;
-         } 
-       }
-   this.alertCtrl.create({
-    title:"Error",
-    subTitle:'Verifique que los datos ingresados sean los correcto y si esta conectado a internet.',
-    buttons:["Aceptar"]
-   }).present();
-   console.log('--------------------------------');
-   return;
+  //           // console.log("ID Usuario Actual:",this.cip.usuario_actual)
+  //           // this.cip.tipo_usuario=element.tipo_usuario
+  //           // this.cip.id_usuario=element.id
+  //           this.navCtrl.setRoot(InicioPage,{'usuarioLogeado':element});
+  //           return;
+  //        } 
+  //      }
+  //  this.alertCtrl.create({
+  //   title:"Error",
+  //   subTitle:'Verifique que los datos ingresados sean los correcto y si esta conectado a internet.',
+  //   buttons:["Aceptar"]
+  //  }).present();
+  //  console.log('--------------------------------');
+  //  return;
     
   }
   Registrar(){

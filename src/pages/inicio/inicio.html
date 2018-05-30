@@ -7,25 +7,25 @@
 <ion-header>
   
   <ion-navbar color="violeta">
-      <ion-buttons left>
+      <!-- <ion-buttons left>
           <button ion-button (click)="cerrarModal()">
             <ion-icon name="close-circle" 
                       class="iconos_nuevo_producto"
                       color="danger">
             </ion-icon>
           </button>
-      </ion-buttons>
+      </ion-buttons> -->
     <ion-title text-color="violeta">
      Instituto de practicas periciales
     </ion-title>
-    <ion-buttons right>
+    <!-- <ion-buttons right>
         <button ion-button (click)="cerrarModal()">
           <ion-icon name="close-circle" 
                     class="iconos_nuevo_producto"
                     color="danger">
           </ion-icon>
         </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-navbar>
   
 </ion-header>
@@ -33,26 +33,19 @@
 
 <ion-content >
     <ion-searchbar (ionInput)="getItems2($event)" placeholder="Buscar"></ion-searchbar>
-
-   
-        <ion-grid>
-            <ion-row *ngFor="let video of countryList">
-                <ion-col>
-                    <button color ="violeta" block (click)="irASitio(video.enlace)" >
-                        <ion-card>
-                            <ion-card-content>
+        <ion-card *ngFor="let video of countryList">
+                                    <ion-card-content>
                                 <ion-card-title>
-                                 
+                                        {{video.titulo}}
                                 </ion-card-title>
-                                <h2> {{video.titulo}}</h2>
-                                <h3> {{video.descripcion}}</h3>
+                                
+                                <p>{{video.descripcion}}</p>
+                                <button  ion-button block color ="violeta" block (click)="irASitio(video.enlace)" >Ver</button>
                             </ion-card-content>
                         </ion-card>
-                      </button>    
-                           
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+                         
+          
+        
             
             
                

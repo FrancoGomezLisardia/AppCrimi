@@ -18,6 +18,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { NuevoContenidoPage } from '../pages/nuevo-contenido/nuevo-contenido';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 export const firebaseConfig = {
   apiKey: "AIzaSyA1_-Sc6cTCrQQ3ba7cQAweGYjO_OiIdrs",
   authDomain: "appcrimi.firebaseapp.com",
@@ -54,6 +55,7 @@ export const firebaseConfig = {
   ],
   providers: [
     StatusBar,
+    InAppBrowser,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VideoPlayer,

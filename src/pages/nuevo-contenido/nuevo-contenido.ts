@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ViewController,ToastController } from 'ionic-angular';
 import { FileChooser } from '@ionic-native/file-chooser';
 import { FileOpener } from '@ionic-native/file-opener';
 import { FilePath } from '@ionic-native/file-path';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import * as firebase from 'firebase';
+import {  AngularFireDatabase } from "angularfire2/database";
+
 @IonicPage()
 @Component({
   selector: 'page-nuevo-contenido',
@@ -13,6 +15,7 @@ import * as firebase from 'firebase';
 })
 export class NuevoContenidoPage {
   titulo: string = "";
+  enlace:string = "";
   descripcion: string="";
   ruta: any;
   video:any;
@@ -26,6 +29,8 @@ export class NuevoContenidoPage {
               private fileOpener: FileOpener, 
               private filePath: FilePath,
               private viewCtrl:ViewController,
+              private toastCtrl:ToastController,
+              public fireDatabase: AngularFireDatabase,
               private file: File) {
   }
 
@@ -59,13 +64,20 @@ export class NuevoContenidoPage {
     this.viewCtrl.dismiss();
    }
   guardar(){
-    let archivo={
-      img:this.imagen64,
+    let video={
+      enlace:this.enlace,
       titulo:this.titulo,
       descripcion:this.descripcion,
       estado:this.estado
-    };
-
+    }
+    this.fireDatabase.list('video/').push(video)
+    let toast = this.toastCtrl.create({
+      message: 'Enlace agregado',
+      duration: 3000
+    });
+    toast.present();
+    this.viewCtrl.dismiss()
+    
   }
 
 obtenerArchivo(){

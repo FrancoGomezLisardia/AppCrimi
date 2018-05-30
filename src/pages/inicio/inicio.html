@@ -6,7 +6,7 @@
 -->
 <ion-header>
   
-  <ion-navbar>
+  <ion-navbar color="violeta">
       <ion-buttons left>
           <button ion-button (click)="cerrarModal()">
             <ion-icon name="close-circle" 
@@ -16,7 +16,7 @@
           </button>
       </ion-buttons>
     <ion-title text-color="violeta">
-      <img src="./assets/imgs/titulo.jpg">
+     Instituto de practicas periciales
     </ion-title>
     <ion-buttons right>
         <button ion-button (click)="cerrarModal()">
@@ -32,21 +32,48 @@
 
 
 <ion-content >
-    <ion-card >
+    <ion-searchbar (ionInput)="getItems2($event)" placeholder="Buscar"></ion-searchbar>
+
+   
+        <ion-grid>
+            <ion-row *ngFor="let video of countryList">
+                <ion-col>
+                    <button color ="violeta" block (click)="irASitio(video.enlace)" >
+                        <ion-card>
+                            <ion-card-content>
+                                <ion-card-title>
+                                 
+                                </ion-card-title>
+                                <h2> {{video.titulo}}</h2>
+                                <h3> {{video.descripcion}}</h3>
+                            </ion-card-content>
+                        </ion-card>
+                      </button>    
+                           
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+            
+            
+               
+
+
+   
+    <!-- <ion-card >
         <video style="width: 350px; height: 250px;" controls="controls" preload="metadata"  webkit-playsinline="webkit-playsinline" class="videoPlayer">
             <source src="./assets/imgs/movie.mp4" type="video/mp4" />
         </video>
         <ion-card-content>
         <ion-card-title>
-         <!-- {{ country.titulo }} -->
+         {{ country.titulo }}
          Titulo video
            <br>
-         <!-- ${{ country.precio }} -->
+          ${{ country.precio }} 
         </ion-card-title>
         
         </ion-card-content>
 
-      </ion-card>	
+      </ion-card>	 -->
       <ion-fab bottom right>
           <button ion-fab mini color="danger" (click)="agregarContenido()">
           <!-- [disabled]=" this._cap.tipo_usuario==2"> -->

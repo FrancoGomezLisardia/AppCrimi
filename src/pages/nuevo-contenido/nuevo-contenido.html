@@ -43,20 +43,24 @@
                 <ion-input type="text" [(ngModel)]="titulo"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-label floating>Descripcion</ion-label>
+                <ion-label floating>Descripcion:</ion-label>
                 <ion-input type="text"[(ngModel)]="descripcion"></ion-input>
               </ion-item>
+              <ion-item>
+                  <ion-label floating>Enlace:</ion-label>
+                  <ion-input type="text"[(ngModel)]="enlace"></ion-input>
+                </ion-item>
               
               <!-- <ion-item *ngIf="imagenPreview">
                   <img  [src]="imagenPreview">
               </ion-item> -->
     
             </ion-list>
-            <ion-grid>
+            <!-- <ion-grid>
                 <ion-row >
                   <ion-col>
                    <button ion-button block icon-left (click)="seleccionar_video()">
-                     <!-- <ion-icon name="name="videocam""> </ion-icon> -->
+                      <ion-icon name="name="videocam""> </ion-icon> 
                      <ion-icon name="videocam"> </ion-icon>
                      Seleccionar Video
                    </button>
@@ -70,6 +74,6 @@
     
                      </ion-col>
                 </ion-row>
-              </ion-grid>
+              </ion-grid> -->
     
 </ion-content>

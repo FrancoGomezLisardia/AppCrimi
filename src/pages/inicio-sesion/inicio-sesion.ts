@@ -39,16 +39,7 @@ export class InicioSesionPage {
               });
               loading.present();
   this.userModel = new UsersModels();
-  
- 
-
- loading.dismiss();
-  }
-
- 
-
-  Iniciar_Sesion() {
-    this.usuariosRef = firebase.database().ref('/Usuarios');//Crea una referencia al Nodo Usuarios
+  this.usuariosRef = firebase.database().ref('/Usuarios');//Crea una referencia al Nodo Usuarios
     this.usuariosRef.on('value', listaDeUsuarios => {
       let usuarios = [];
       listaDeUsuarios.forEach( usuario => {
@@ -58,6 +49,15 @@ export class InicioSesionPage {
        this.listaDeUsuarios = usuarios ;
     console.log("Usuarios Registrados:",this.listaDeUsuarios);
    });//Crea un arreglo con los elementos del nodo Usuarios
+ 
+
+ loading.dismiss();
+  }
+
+ 
+
+  Iniciar_Sesion() {
+    
     for (let index = 0; index < this.listaDeUsuarios.length; index++) {
     
          const element =  this.listaDeUsuarios[index];
